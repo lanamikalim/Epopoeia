@@ -1,0 +1,19 @@
+body
+{
+
+}
+button
+{
+  background-color: green;
+  border: 2px solid powderblue;
+  width: 10px;
+  height: 10px;
+}
+.red
+{
+  background-color:red;
+}
+.green
+{
+  background-color: powderblue;
+}

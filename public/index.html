@@ -4,7 +4,7 @@
 <title>Well hello there</title>
 </head>
 <body>
-  <button class="" id="firstbutton">
+  <button class="red" id="firstbutton">
   </button>
   <button class="" id="alsobutton">
   </button>
@@ -54,8 +54,9 @@ Duc me domum, in viis ruris<br>
 </body>
 <script>
 var highscore =0;
-var buttons[]= (document.getElementById("firstbutton"),document.getElementById("alsobutton"),document.getElementById("buttoff"));
+var buttons= [document.getElementById("firstbutton"),document.getElementById("alsobutton"),document.getElementById("buttoff")];
 console.log(highscore);
+document.getElementById("firstbutton").addEventListener("click", function() {buttons[0].remove('red');});
 document.getElementById("alsobutton").addEventListener("click", myFunc);
 function myFunc()
 {
