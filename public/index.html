@@ -4,12 +4,16 @@
 <title>Well hello there</title>
 </head>
 <body>
-  <button class="red" id="firstbutton">
+  <button class="red" id="r">
   </button>
-  <button class="" id="alsobutton">
+  <button class="green" id="g">
   </button>
-  <button class="" id="buttoff">
+  <br>
+  <button class="yellow" id="y">
   </button>
+  <button class="blue" id="b">
+  </button>
+
   <div>Dank Memes</div>
 <p><b>Viae Ruris (Country Roads but in Latin)</b> <br>
 Paene caelum, Vesper Virginia<br>
@@ -28,10 +32,11 @@ Duc me domum, viae ruris<br>
 </body>
 <script>
 var highscore =0;
-var buttons= [document.getElementById("firstbutton"),document.getElementById("alsobutton"),document.getElementById("buttoff")];
+var colorOrder = [];
+var buttons= [document.getElementById("r"),document.getElementById("g"),document.getElementById("y"),document.getElementById("b")];
 console.log(highscore);
-document.getElementById("firstbutton").addEventListener("click", function() {buttons[0].classList.remove('red');});
-document.getElementById("alsobutton").addEventListener("click", myFunc);
+document.getElementById("r").addEventListener("click", function() {buttons[0].classList.add('lit');window.setTimeout(function(){buttons[0].classList.remove('lit');},300);});
+document.getElementById("g").addEventListener("click", myFunc);
 function myFunc()
 {
   console.log("help I'm trapped in a website factory");
