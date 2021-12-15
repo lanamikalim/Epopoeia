@@ -32,14 +32,20 @@ Duc me domum, viae ruris<br>
 </body>
 <script>
 var highscore =0;
-var colorOrder = [];
+var order = [randButton];
 var buttons= [document.getElementById("r"),document.getElementById("g"),document.getElementById("y"),document.getElementById("b")];
 console.log(highscore);
-document.getElementById("r").addEventListener("click", function() {buttons[0].classList.add('lit');window.setTimeout(function(){buttons[0].classList.remove('lit');},300);});
-document.getElementById("g").addEventListener("click", myFunc);
+order.push(randButton());
+randButton().addEventListener("click", function() {randButton().classList.add('lit');window.setTimeout(function(){buttons[0].classList.remove('lit');},300);});
+randButton().addEventListener("click", myFunc);
 function myFunc()
 {
   console.log("help I'm trapped in a website factory");
+}
+function randButton()
+{
+  var randnum = Math.floor(Math.random()*4);
+  return buttons[randnum];
 }
 </script>
 </html>
