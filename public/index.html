@@ -14,7 +14,7 @@
   <button class="blue" id="b">
   </button>
 
-  <div>Dank Memes</div>
+
 <p><b>Viae Ruris (Country Roads but in Latin)</b> <br>
 Paene caelum, Vesper Virginia<br>
 Caeruleos Montes, Shenandoah Flumen<br>
@@ -32,12 +32,76 @@ Duc me domum, viae ruris<br>
 </body>
 <script>
 var highscore =0;
-var order = [randButton];
+var score = 0;
+var order = [];
 var buttons= [document.getElementById("r"),document.getElementById("g"),document.getElementById("y"),document.getElementById("b")];
-console.log(highscore);
-order.push(randButton());
-randButton().addEventListener("click", function() {randButton().classList.add('lit');window.setTimeout(function(){buttons[0].classList.remove('lit');},300);});
-randButton().addEventListener("click", myFunc);
+console.log("Highscore: "+highscore);
+chooseNext();
+function chooseNext()
+{
+  for (var i=0;i<buttons.length;i++)
+  {
+    var toReset = buttons[i];
+    //toReset.removeEventListener("click", wrong(toCompare.id));
+    toReset.removeEventListener("click", function() {toReset.classList.add('lit');window.setTimeout(function(){unlight();console.log("score: "+(++score));correct()},300);});
+  }
+  order.push(randButton());
+  display();
+  var chosen = order[order.length-1];
+  for(var i=0;i<buttons.length;i++)
+  {
+    var toCompare=buttons[i];
+    if (!(toCompare==chosen))
+    {
+      //toCompare.addEventListener("click", wrong(toCompare.id));
+    }
+    else {
+      toCompare.addEventListener("click", function() {toCompare.classList.add('lit');window.setTimeout(function(){unlight();console.log("score: "+(++score));correct()},300);});
+    }
+  }
+
+
+}
+function reset()
+{
+  if(highscore>score)
+  {
+    highscore=score;
+  }
+  score=0;
+  order=[];
+}
+function unlight()
+{
+  for(var i=0;i<buttons.length;i++)
+  {
+    buttons[i].classList.remove('lit');
+  }
+}
+function display()
+{
+  for (var i=0;i<order.length;i++)
+  {
+    var orderedButton = order[i];
+    orderedButton.classList.add("lit");
+    setTimeout(() => {orderedButton.classList.remove("lit"); }, 500);
+  }
+}
+function correct()
+{
+  chooseNext();
+}
+function wrong (id)
+{
+  console.log("it has been done");
+  var losingButton = document.getElementById(id);;
+  if(score>highscore)
+  {highscore=score;}
+  losingButton.classList.add('lost');
+  window.setTimeout(function(){toCompare.classList.remove('lost');console.log("score: "+(score=0))},300);
+  losingButton.removeEventListener("click",wrong("toCompare"));
+  reset();
+}
 function myFunc()
 {
   console.log("help I'm trapped in a website factory");
