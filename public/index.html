@@ -1,5 +1,13 @@
 <html>
 <head>
+  <body>
+    <div id="message">
+      <h2>Art Project</h2>
+
+    <canvas id="canvas" width="900" height="500"></canvas>
+    </div>
+  </body>
+
 <link rel="stylesheet" href="style.css">
 <title>Well hello there</title>
 </head>
@@ -13,6 +21,7 @@
   </button>
   <button class="blue" id="b">
   </button>
+
 
 
 <p><b>Viae Ruris (Country Roads but in Latin)</b> <br>
@@ -30,6 +39,7 @@ Duc me domum, viae ruris<br>
 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Click to hear this song</a>
 <p style="background-color:Orange;">Testing with colors</p>
 </body>
+<script src="canvas.js"></script>
 <script>
 var highscore =0;
 var score = 0;
@@ -111,5 +121,6 @@ function randButton()
   var randnum = Math.floor(Math.random()*4);
   return buttons[randnum];
 }
+
 </script>
 </html>
