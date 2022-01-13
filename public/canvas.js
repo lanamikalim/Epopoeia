@@ -12,6 +12,8 @@ function drawArt(ctx) {
     ctx.beginPath();
     ctx.moveTo(-100, -150);
     ctx.bezierCurveTo(0, 50, -20, 100, -100, 200);
+    ctx.moveTo(-100, -150);
+    ctx.bezierCurveTo(30, 50, -20, 100, -100, 200);
     ctx.stroke();
 }
 
