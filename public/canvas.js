@@ -7,6 +7,7 @@ function initializeAnimation() {
 function drawArt(ctx) {
   ctx.rotate(40 * Math.PI / 180);
   var time = new Date();
+//  ctx.rotate(time.getSeconds() + (time.getMilliseconds())/.01);
   ctx.translate(10* time.getSeconds(),0);
     ctx.fillRect(-200, -150, 100, 100);
     ctx.save();
