@@ -6,10 +6,15 @@ function initializeAnimation() {
 
 function drawArt(ctx) {
   ctx.rotate(40 * Math.PI / 180);
+  var time = new Date();
+  ctx.translate(10* time.getSeconds(),0);
     ctx.fillRect(-200, -150, 100, 100);
+    ctx.save();
+    ctx.restore();
 
 
     ctx.beginPath();
+    ctx.rotate(time.getSeconds() + (time.getMilliseconds())/100);
     ctx.moveTo(-100, -150);
     ctx.bezierCurveTo(0, 50, -20, 100, -100, 200);
     ctx.moveTo(-100, -150);
@@ -22,6 +27,9 @@ function drawArt(ctx) {
       ctx.lineTo(-100, 150);
       ctx.lineTo(50, 100);
       ctx.fill();
+
+    ctx.moveTo(-100, -150);
+
 
 }
 
